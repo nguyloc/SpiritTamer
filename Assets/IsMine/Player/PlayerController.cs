@@ -1,8 +1,9 @@
+using Fusion;
 using UnityEngine;
 
 namespace IsMine.Player
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerController : NetworkBehaviour
     {
         public float speed = 5f;
         public float gravity = -9.81f;
@@ -18,6 +19,7 @@ namespace IsMine.Player
 
         void Update()
         {
+            if (!Object.HasInputAuthority) return;
             Moving();
         }
         
