@@ -4,58 +4,58 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 
-[System.Serializable]
-public struct PlayerInfo: INetworkStruct
-{
-    public int health;
-    //public int mana;
-    public int score;
-}
-
-
 namespace IsMine.Player
 {
     public class PlayerPropeties : NetworkBehaviour
     {
-        [Networked,OnChangedRender(nameof(OnInfoChanged))]
-        private PlayerInfo info{get;set;}
+        [Networked, OnChangedRender(nameof(OnInfoChanged))]
+        public int health { get; set; } = 100;
+        [Networked, OnChangedRender(nameof(OnInfoChanged))]
+        public int mana { get; set; } = 100;
+        [Networked, OnChangedRender(nameof(OnInfoChanged))]
+        public int score { get; set; } = 0;
+
+
+        Animator anim;
+        [Networked,OnChangedRender(nameof(OnAnimationChanged))]
+        public bool Slash{get;set;}=false;
+
+
+        private void OnAnimationChanged()
+        {
+            anim.SetTrigger("Slash");
+        }
     
         public Slider sliderHealth;
-       // public Slider sliderMana;
+        public Slider sliderMana;
         public TextMeshProUGUI scoreText;
 
 
         private void OnInfoChanged()
         {   
-            sliderHealth.value=info.health;
-            //sliderMana.value=info.mana;
-            scoreText.text=info.score+"";
-            Debug.Log("score: "+info.score);
+            sliderHealth.value=health;
+            sliderMana.value=mana;
+            if (HasInputAuthority) scoreText.text=score+"";
         }
         void Start()
         {
-            info=new PlayerInfo
+            anim=gameObject.GetComponent<Animator>();
+            
+            if (!HasInputAuthority) 
             {
-                health=(int)sliderHealth.value,
-                //mana=(int)sliderMana.value,
-                score=0
-            }; 
+                scoreText.gameObject.SetActive(false); 
+            }
         }
-        void Update()
+        public override void FixedUpdateNetwork()
         {
             if(HasInputAuthority)
             {
                 if(Input.GetMouseButtonDown(0))
                 {
-                    int currenthealth=info.health;
-                    //int currentmana=info.mana;
-                    int currentscore=info.score;
-                    info =new PlayerInfo
-                    {
-                        health=currenthealth-10,
-                        //mana=currentmana-20,
-                        score=currentscore+30,
-                    };
+                    health-=10;
+                    mana-=10;
+                    score+=10;
+                    Slash=!Slash;
                 }
             }
         }
