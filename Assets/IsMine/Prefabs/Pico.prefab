@@ -2031,6 +2031,7 @@ GameObject:
   - component: {fileID: 3866490096050337526}
   - component: {fileID: 7002494678187280249}
   - component: {fileID: 4497516081716251728}
+  - component: {fileID: 1219215472208862583}
   m_Layer: 0
   m_Name: Pico
   m_TagString: Player
@@ -2215,8 +2216,21 @@ MonoBehaviour:
   ObjectInterest: 1
   Flags: 262145
   NestedObjects: []
-  NetworkedBehaviours: []
+  NetworkedBehaviours:
+  - {fileID: 1219215472208862583}
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &1219215472208862583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2205934422417986490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77042b1add5bc674bbcf07def340543c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2207735456414955218
 GameObject:
   m_ObjectHideFlags: 0
