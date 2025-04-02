@@ -15,6 +15,8 @@ namespace IsMine.Player
         [Networked, OnChangedRender(nameof(OnInfoChanged))]
         public int score { get; set; } = 0;
 
+        public GameObject weapon;
+
 
         Animator anim;
         [Networked,OnChangedRender(nameof(OnAnimationChanged))]
@@ -41,10 +43,10 @@ namespace IsMine.Player
         {
             anim=gameObject.GetComponent<Animator>();
             
-            if (!HasInputAuthority) 
-            {
-                scoreText.gameObject.SetActive(false); 
-            }
+            //if (!HasInputAuthority) 
+            //{
+                //scoreText.gameObject.SetActive(false); 
+            //}
         }
         public override void FixedUpdateNetwork()
         {
@@ -52,12 +54,32 @@ namespace IsMine.Player
             {
                 if(Input.GetMouseButtonDown(0))
                 {
-                    health-=10;
-                    mana-=10;
-                    score+=10;
-                    Slash=!Slash;
+                    Slash =! Slash;
+                    weapon.GetComponent<BoxCollider>().enabled = true;
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    weapon.GetComponent<BoxCollider>().enabled = false;
                 }
             }
         }
+
+        [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+        public void RpcTakeDamage(int damage)
+        {
+            health -= damage;
+            score += 10;
+        }
+        
+        public override void Spawned()
+        {
+            // Chỉ hiển thị UI cho chính người chơi
+            if (Object.HasInputAuthority)
+            {
+                // Ẩn UI của người khác
+                scoreText.gameObject.SetActive(false); 
+            }
+        } 
+
     }
 }

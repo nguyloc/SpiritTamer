@@ -6695,6 +6695,7 @@ MonoBehaviour:
   - {fileID: 6758589767742641706}
   - {fileID: 1876390601145179097}
   - {fileID: 7945278373144532465}
+  - {fileID: 1745990500871294692}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &7144152469704168722
 MonoBehaviour:
@@ -6764,6 +6765,7 @@ MonoBehaviour:
   _health: 100
   _mana: 100
   _score: 0
+  weapon: {fileID: 7323821402516210371}
   _Slash: 0
   sliderHealth: {fileID: 7987284939079257403}
   sliderMana: {fileID: 5013930935480412215}
@@ -9117,6 +9119,8 @@ GameObject:
   - component: {fileID: 7061064576409334064}
   - component: {fileID: 5342318113150799449}
   - component: {fileID: 7892568812158583924}
+  - component: {fileID: 6433136081807415569}
+  - component: {fileID: 1745990500871294692}
   m_Layer: 0
   m_Name: Mace2H_Epic
   m_TagString: Untagged
@@ -9192,6 +9196,39 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6433136081807415569
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323821402516210371}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.4649451, y: 1.2689145, z: 0.21030368}
+  m_Center: {x: -0.000043973327, y: 0.37407842, z: 0.0000013150274}
+--- !u!114 &1745990500871294692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323821402516210371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d3911506759574b81d8a368b63b3d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7442826247494498555
 GameObject:
   m_ObjectHideFlags: 0
@@ -10598,7 +10635,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
