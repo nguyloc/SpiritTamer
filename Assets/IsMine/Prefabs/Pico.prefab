@@ -6747,9 +6747,9 @@ MonoBehaviour:
   Animator: {fileID: 8085481593376542933}
   ApplyTiming: 2
   SyncSettings: 79
-  StateHashes: 00000000a752ad1a10fe0f71d145df40713fc50628a9810760dcb86b48d3833b5cc17e51461498718b0ee04e0af731a481d76b51958341e2389f4f5d1d527be79ee2adb3
-  TriggerHashes: 00000000f5680fc6
-  TotalWords: 6
+  StateHashes: 00000000a752ad1a10fe0f71d145df40713fc50628a9810760dcb86b48d3833b5cc17e51461498718b0ee04e0af731a481d76b51958341e2389f4f5d1d527be79ee2adb337ba65aa2ac6c7c8bedec536
+  TriggerHashes: 00000000f1a6ecf8f5680fc6
+  TotalWords: 7
 --- !u!114 &7945278373144532465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6767,9 +6767,13 @@ MonoBehaviour:
   _score: 0
   weapon: {fileID: 7323821402516210371}
   _Slash: 0
+  _Fire: 0
   sliderHealth: {fileID: 7987284939079257403}
   sliderMana: {fileID: 5013930935480412215}
   scoreText: {fileID: 6187672781522066710}
+  fireballPrefab: {fileID: 191795548343512979, guid: 47a0f60d67a07b049afa9abba744a644, type: 3}
+  firePoint: {fileID: 0}
+  fireRate: 0.5
 --- !u!1 &4897383636381451109
 GameObject:
   m_ObjectHideFlags: 0
