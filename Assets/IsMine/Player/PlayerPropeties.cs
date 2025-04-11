@@ -8,6 +8,7 @@ namespace IsMine.Player
 {
     public class PlayerPropeties : NetworkBehaviour
     {
+        
         // Player properties
         [Networked, OnChangedRender(nameof(OnInfoChanged))]
         public int health { get; set; } = 100;
